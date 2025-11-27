@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strudel Music Player</title>
+    <script type="module">
+        import { repl } from 'https://strudel.tidalcycles.org/tidal.min.js';
+        
+        // Initialize Strudel
+        window.repl = repl;
+        
+        // Example pattern
+        const playExample = () => {
+            repl.evaluate(`
+                setCpm(170/4)
+                stack(
+                  s("bd:1").beat("0,7?,10", 16),
+                  s("sd:2").beat("4,12", 16)
+                ).orbit(2)._scope()
+            `);
+        };
+        
+        // Make it available globally
+        window.playExample = playExample;
+        
+        console.log('Strudel loaded! Try: playExample()');
+    </script>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1a1a1a;
+            color: #00ff00;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #00ffff;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            background: #2a2a2a;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        button {
+            background: #00ff00;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 5px;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #00ffff;
+        }
+        .example {
+            background: #2a2a2a;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎵 Strudel Music Player</h1>
+    
+    <p>Enter your Strudel code below and click "Play":</p>
+    
+    <textarea id="code" placeholder='Enter your pattern here, e.g.:
+s("bd sd bd sd")
+
+Or:
+
+stack(
+  s("bd:1").beat("0,7?,10", 16),
+  s("sd:2").beat("4,12", 16)
+).orbit(2)._scope()'></textarea>
+    
+    <div>
+        <button onclick="playCode()">▶ Play</button>
+        <button onclick="stopMusic()">⏹ Stop</button>
+        <button onclick="loadExample()">📝 Load Example</button>
+    </div>
+    
+    <div class="example">
+        <h3>Quick Examples:</h3>
+        <pre>s("bd sd bd sd")</pre>
+        <pre>note("c3 e3 g3 c4")</pre>
+        <pre>stack(s("bd"), s("sd"))</pre>
+    </div>
+    
+    <script>
+        const playCode = () => {
+            const code = document.getElementById('code').value;
+            try {
+                repl.evaluate(code);
+                console.log('✓ Playing:', code);
+            } catch (error) {
+                console.error('✗ Error:', error);
+                alert('Error: ' + error.message);
+            }
+        };
+        
+        const stopMusic = () => {
+            repl.evaluate('silence');
+            console.log('⏹ Stopped');
+        };
+        
+        const loadExample = () => {
+            document.getElementById('code').value = `setCpm(170/4)
+stack(
+  s("bd:1").beat("0,7?,10", 16),
+  s("sd:2").beat("4,12", 16)
+).orbit(2)._scope()`;
+        };
+    </script>
+</body>
+</html>
+
