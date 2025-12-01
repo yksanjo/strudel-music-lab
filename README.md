@@ -1,5 +1,8 @@
 # Strudel Music Terminal Guide
 
+[![GitHub stars](https://img.shields.io/github/stars/yksanjo/strudel-music-lab?style=social)](https://github.com/yksanjo/strudel-music-lab/stargazers) [![GitHub forks](https://img.shields.io/github/forks/yksanjo/strudel-music-lab.svg)](https://github.com/yksanjo/strudel-music-lab/network/members) [![GitHub issues](https://img.shields.io/github/issues/yksanjo/strudel-music-lab.svg)](https://github.com/yksanjo/strudel-music-lab/issues) [![Last commit](https://img.shields.io/github/last-commit/yksanjo/strudel-music-lab.svg)](https://github.com/yksanjo/strudel-music-lab/commits/main)
+
+
 This project lets you create music with code using Strudel in your terminal.
 
 ## Quick Start
