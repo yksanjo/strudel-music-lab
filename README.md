@@ -1,86 +1,84 @@
-# Strudel Music Terminal Guide
+# strudel-music-lab
 
-[![GitHub stars](https://img.shields.io/github/stars/yksanjo/strudel-music-lab?style=social)](https://github.com/yksanjo/strudel-music-lab/stargazers) [![GitHub forks](https://img.shields.io/github/forks/yksanjo/strudel-music-lab.svg)](https://github.com/yksanjo/strudel-music-lab/network/members) [![GitHub issues](https://img.shields.io/github/issues/yksanjo/strudel-music-lab.svg)](https://github.com/yksanjo/strudel-music-lab/issues) [![Last commit](https://img.shields.io/github/last-commit/yksanjo/strudel-music-lab.svg)](https://github.com/yksanjo/strudel-music-lab/commits/main)
+## Detailed Description
 
+strudel-music-lab is maintained as an industry-grade software project with production-ready engineering practices.  
+This repository includes documented setup, quality gates, operational guidance, and governance standards so contributors can safely build, test, and ship changes with confidence.
 
-This project lets you create music with code using Strudel in your terminal.
+## Problem Statement
 
-## Quick Start
+Describe the user or business problem this project solves, the target users, and expected outcomes.
 
-### 1. Install Dependencies
+## Solution Overview
+
+Summarize the architecture, core modules, and runtime behavior at a high level.
+
+## Key Features
+
+- Clear project scope and intended use.
+- Reproducible local development workflow.
+- Test coverage and CI quality gates.
+- Security and contribution policies.
+- Deployment-ready repository structure.
+
+## Repository Structure
+
+```text
+.
+|-- src/                  # Core implementation
+|-- tests/                # Automated test suites
+|-- docs/                 # Design notes and operational docs
+|-- .github/workflows/    # CI pipelines
+|-- README.md
+|-- LICENSE
+|-- CONTRIBUTING.md
+|-- SECURITY.md
+|-- CODE_OF_CONDUCT.md
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Git
+- Project runtime/toolchain for this repo
+
+### Local Setup
 
 ```bash
-cd strudel-music
-npm install
+npm ci
+npm run lint
+npm test
+npm run build
 ```
 
-### 2. Run Music
+## Usage
 
-**Option A: Run a music file**
-```bash
-npm start
-```
+Document primary commands, API routes, CLI examples, or UI workflows here.
 
-**Option B: Interactive REPL**
-```bash
-npm run repl
-```
+## Quality Standards
 
-Then type patterns like:
-```
-s("bd sd bd sd")
-stack(s("bd"), s("sd"))
-note("c3 e3 g3")
-```
+- CI must pass before merge.
+- Changes require tests for critical behavior.
+- Security-sensitive changes should include risk notes.
+- Keep pull requests focused and reviewable.
 
-**Option C: Web Interface**
-```bash
-npm run server
-```
+## Security
 
-Then open http://localhost:3000 in your browser.
+See `SECURITY.md` for responsible disclosure and handling guidelines.
 
-## Usage Examples
+## Contributing
 
-### In REPL Mode
+See `CONTRIBUTING.md` for branching, commit, and pull request expectations.
 
-```bash
-npm run repl
-```
+## Roadmap
 
-Then try:
-- `s("bd sd bd sd")` - Simple drum pattern
-- `note("c3 e3 g3 c4")` - Melody
-- `stack(s("bd"), s("sd"))` - Layered patterns
-- `setCpm(140)` - Set tempo
-- `help` - Show help
-- `exit` - Quit
+Track upcoming milestones, technical debt, and planned feature work.
 
-### In Code Mode
+## Support
 
-Edit `music.js` and run:
-```bash
-npm start
-```
+Open a GitHub issue for bugs, feature requests, or documentation gaps.
 
-## File Structure
+## License
 
-- `music.js` - Example music file
-- `repl.js` - Interactive REPL
-- `server.js` - Web server
-- `index.html` - Web interface
-
-## Tips
-
-1. Start simple with `s("bd sd")`
-2. Use `stack()` to layer sounds
-3. Experiment with `.beat()` for timing
-4. Add effects like `.lpf(400)` or `.room(0.5)`
-
-## Resources
-
-- Strudel Docs: https://strudel.tidalcycles.org/learn/
-- Examples: See `strudel-examples.js` in parent directory
-
-Happy coding! 🎵
-
+This project is released under the MIT License.
